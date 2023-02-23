@@ -10,7 +10,7 @@ Add this to your package's `pubspec.yaml` file
 
 ```yaml
 dependencies:
-  web_image_downloader: ^0.0.1
+  web_image_downloader: ^1.0.1
 ```
 
 ## Usage
@@ -22,8 +22,16 @@ First, you just have to import the package using:
 import 'package:web_image_downloader/web_image_downloader.dart';
 ```
 
-Then , call the function as below, 
+Then , wrap the required [image] widget with RepaintBoundary widget and pass a global key to it.
 
+```dart
+  RepaintBoundary(
+      key: globalKey,
+      child: Image.asset('assets/image.png'),
+    ),
+```
+
+Finally , call the function as below,  by passing the global key and a required fileName.
 
 ```dart
   await WebImageDownloader.downloadImage(globalKey, 'image.png');
